@@ -3,13 +3,13 @@ import json
 from pathlib import Path
 
 
-def set_blank_keys(n, f):
+def set_blank_keys(n, fr):
     obj = bpy.data.objects[str(n)]
-    obj.keyframe_insert(data_path='rotation_euler', frame=f)
-    obj.keyframe_insert(data_path='color', frame=f)
+    obj.keyframe_insert(data_path='rotation_euler', frame=fr)
+    obj.keyframe_insert(data_path='color', frame=fr)
 
 
-def set_anim_keys(n, f, v, m, vel):
+def set_anim_keys(n, fr, v, m, vel):
     # define animation target object
     obj = bpy.data.objects[str(n)]
 
@@ -18,8 +18,8 @@ def set_anim_keys(n, f, v, m, vel):
     # set animation keyframes
     obj.color = (v, v, v, 1)
     obj.rotation_euler = (v, obj.rotation_euler[1], obj.rotation_euler[2])
-    obj.keyframe_insert(data_path='rotation_euler', frame=f)
-    obj.keyframe_insert(data_path='color', frame=f)
+    obj.keyframe_insert(data_path='rotation_euler', frame=fr)
+    obj.keyframe_insert(data_path='color', frame=fr)
 
 
 def note_on(note, value, frame, mult):
