@@ -5,3 +5,4 @@
 # My ignored files
 /databases/
 /previous_version/
+*.db
