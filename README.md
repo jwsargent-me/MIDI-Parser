@@ -9,9 +9,22 @@ If you would like to contact me you may set up an appointment.
 
 ## How To Use 
 
-Information on the project and how it can be used
- 
- - Placeholder 
+### JSON Data Structure
+
+*Example of a json data entry*
+```
+"002656": {
+        "type": "note_on",
+        "frame": 5368,
+        "note": 84,
+        "value": 106
+    }
+```
+ - "002656" - the index of this event, always increases by 1
+ - "type" - gives information on what event this is, usually note_on, note_off, or control_change
+ - "frame" - frame that the event occurs on, as defined by your settings, can increase by any amount
+ - "note" - which note out of 0-127 MIDI notes is being modified
+ - "value" - the intensity or extent of the action, the expected range is 0-127
 
 ---
 
