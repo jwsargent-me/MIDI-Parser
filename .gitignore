@@ -5,4 +5,7 @@
 # My ignored files
 /databases/
 /previous_version/
+/RENDERS/
+/ARCHIVE/
+/.idea/
 *.db
