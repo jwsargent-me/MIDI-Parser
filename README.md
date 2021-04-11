@@ -25,6 +25,8 @@ If you would like to contact me you may set up an appointment.
  - "frame" - frame that the event occurs on, as defined by your settings, can increase by any amount
  - "note" - which note out of 0-127 MIDI notes is being modified
  - "value" - the intensity or extent of the action, the expected range is 0-127
+ 
+ Notes: Data input can be changed per entry type, it is important to check entry type before processing the entry
 
 ---
 
