@@ -51,14 +51,14 @@ def process_msg(m, m_note, m_val, p):
     return msg_dict
 
 
-def msg_print(m, m_note, m_val):  # m = msg and m_val is the message value
+def msg_print(m, n, v):  # m = msg, n = note, v = value
     print('Tick: ' + str(global_tick) +
           ' - Frame: ' + str(msg_frame) +
           ' - Time: ' + str(msg_timestamp) +
-          ' - ' + str(m.type) + ':  note - ' + str(m_note) + '  value - ' + str(m_val))
+          ' - ' + str(m.type) + ':  note - ' + str(n) + '  value - ' + str(v))
 
 
-def msg_to_dict(m, n, v):  # d = data, f = msg_frame, v = values
+def msg_to_dict(m, n, v):  # m = msg, n = note, v = value
     msg_id = str(message_num + 1).zfill(6)
     data[msg_id] = {}
     d = data[msg_id]
@@ -83,25 +83,26 @@ def json_write(d):
 
 
 # Global Variables
-data = {}  # globally accessible dictionary to build JSON file from
-
-global_tick = 0  # this keeps track of the total number of ticks as events are processed
-frame_rate = 30  # this determines how frame values are generated
-message_num = 0
-
-will_msg_print = False  # temporary bool to control console printing of data dict
+frame_rate = 30             # this determines how frame values are generated
+will_msg_print = False      # temporary bool to control console printing of data dict
 
 directory = os.fsencode('./MIDI/')
 
 for file in os.listdir(directory):
+    input_midi = None
+    data = {}
+    global_tick = 0
+    message_num = 0
+
     filename = os.fsdecode(file)
+
     if filename.endswith(".mid") or filename.endswith(".midi"):
         file_name = os.path.splitext(filename)[0]
         print(file_name)
 
         input_midi = mido.MidiFile('./MIDI/' + filename)
 
-        # Get the tick ratio
+        # get the tick ratio
         tick_ratio = get_time_info(input_midi)
 
         # go through all recorded data events and pull desired messages
@@ -125,20 +126,8 @@ for file in os.listdir(directory):
 
 '''
 
-What I need to implement
- ->>> save data to a .csv format and load into SQLite database
- - create a method to generate scrolling tiles like I had before from the csv or json file
-        probably can repurpose old script that used PIL
- 
-IDEAS:
+Notes:
+ -
 
-  
-  Other Goals:
-   ->> Clean up functions and variables, this structure needs some work
-   - Make sure this will play nicely with external execution, I want the database to be updated automatically
-   - Only update the database if an entry with the same name does not exist, 
-        this will prevent duplicates every time I update the database
-   - Make an override so I can overwrite entries if I want 
-   ? Consider calling functions from main.py to simplify  
   
 '''
