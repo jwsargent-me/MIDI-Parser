@@ -5,7 +5,9 @@
 # My ignored files
 /databases/
 /previous_version/
-/RENDERS/
 /ARCHIVE/
+/JSON/
+/MIDI/
+/RENDERS/
 /.idea/
 *.db
