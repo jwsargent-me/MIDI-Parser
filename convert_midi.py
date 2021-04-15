@@ -78,7 +78,11 @@ def json_print(d):
 
 
 def json_write(d):
-    with open('./JSON/' + file_name + '.json', 'w') as outfile:
+    json_path = './JSON/'
+    if not os.path.isdir(json_path):
+        os.mkdir(json_path)
+
+    with open(json_path + file_name + '.json', 'w') as outfile:
         json.dump(d, outfile, indent=4)
 
 
@@ -98,7 +102,6 @@ for file in os.listdir(directory):
 
     if filename.endswith(".mid") or filename.endswith(".midi"):
         file_name = os.path.splitext(filename)[0]
-        print(file_name)
 
         input_midi = mido.MidiFile('./MIDI/' + filename)
 
@@ -107,7 +110,7 @@ for file in os.listdir(directory):
 
         # go through all recorded data events and pull desired messages
         for tracks in input_midi.tracks:
-            if tracks.name == 'Record':
+            if tracks.name == 'Piano':      # Make sure to update this to match recorded channel name
                 for msg in tracks:
                     message_num = message_num + 1
                     # Get message time elements
@@ -128,6 +131,5 @@ for file in os.listdir(directory):
 
 Notes:
  -
-
   
 '''
