@@ -87,7 +87,7 @@ def json_write(d):
 
 
 # Global Variables
-frame_rate = 30             # this determines how frame values are generated
+frame_rate = 60             # this determines how frame values are generated
 will_msg_print = False      # temporary bool to control console printing of data dict
 
 directory = os.fsencode('./MIDI/')
