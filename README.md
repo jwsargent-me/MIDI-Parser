@@ -3,7 +3,7 @@
 ### Disclaimer
 This is an ever evolving project, and is subject to substantial changes and bugs at all times. 
 You are welcome to use anything in this project that you find helpful, but do so at your own risk. 
-I do not provide support, however if you would like to contact me 
+I do not provide support, however if you would like to contact me I welcome productive communication.
 
 ---
 
